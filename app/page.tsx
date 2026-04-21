@@ -18,7 +18,7 @@ export default function Home() {
   const handleWhatsAppClick = (productName: string) => {
     const message = "Hello! I'm interested in your clothes."
     const encodedMessage = encodeURIComponent(message)
-    return 'https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}'
+    return `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`
   }
   
   return (
