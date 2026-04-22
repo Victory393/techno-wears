@@ -3,7 +3,7 @@
 import {useState, useEffect} from "react"
 import {motion} from "framer-motion"
 import {PRODUCTS} from "@/constants/product"
-import { once } from "events";
+//import { once } from "events";
 //import { main } from "framer-motion/client"
 
 export default function Home() {
