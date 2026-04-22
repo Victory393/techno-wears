@@ -78,6 +78,34 @@ export default function Home() {
     ))}
   </div>
 </section>
+
+<section id="about-us" className="h-auto md:h-auto lg:h-auto flow-root p-8 border rounded-2xl my-8">
+  <motion.h2
+    initial = {{opacity: 0, y: 1}}
+    animate = {{opacity: 1, y: 0}}
+    className="text-2xl font-bold border-b-2 mb-4"
+    >About us
+  </motion.h2>
+  <motion.img 
+  src={`https://images.unsplash.com/photo-1767536038913-837ef97913b9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmF2ZSUyMGdlYXIlMjB3ZWFyc3xlbnwwfHwwfHx8MA%3D%3D`}
+  className="aspect-auto border-0 rounded-xl w-full md:w-1/3 md:float-right md:ml-4 mb-4"
+  />
+  <motion.p
+    initial = {{opacity: 0, y: 1}}
+    animate = {{opacity: 1, y: 0}}
+    className="text-lg text-justify my-2 leading-relaxed"
+    > The Genesis of the Groove
+
+    Techno-Wears wasn't born in a boardroom or a sanitized design studio; it was forged on the vibrating concrete of the underground warehouse scene. We founded this brand on a simple, uncompromising belief: rave gear shouldn't just look the part—it should be as relentless as the music that inspires it. In an environment where the humidity hits 90% and the BPM never drops below 140, standard streetwear simply isn't built to survive. We saw the limitations of fast fashion and decided to engineer a solution for those who live for the late-night culture. 
+    Industrial DNA meets Tactical Performance 
+    We’ve refined that industrial, utilitarian DNA for the modern street, combining raw, dark aesthetics with heavy-duty tactical durability. Every garment in our collection is a piece of equipment. From reinforced triple-stitching that withstands high-intensity movement to breathable, high-performance tech-fabrics that manage moisture while you're deep in the booth, every single detail is intentional. We utilize military-grade hardware and ergonomic tailoring to ensure that our silhouettes move with you—from the first atmospheric drop of the opening set to the unforgiving glare of the morning light.
+    The Rave-Ready Standard
+     Our commitment to the scene goes beyond just clothing; it’s about the endurance of the subculture. We test our prototypes in the harshest conditions—dark clubs, desert festivals, and industrial squats—to ensure they meet the demands of the global techno community. There are no distractions in our design language. No unnecessary flair. No compromises on quality. Whether you are navigating a crowded dancefloor or the urban landscape of the city, our gear is built to provide maximum utility without sacrificing the avant-garde edge that defines the genre. Built to endure the pressure. Built to survive the night.
+  </motion.p>
+
+</section>
+
+
 <footer className="border-t mt-2 py-10 text-center text-gray-400 text-sm space-y-12">
     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 ">
       <div className="flex flex-col border-x-2 border-gray-600 rounded-2xl py-4 items-center justify-center space-y-6">
