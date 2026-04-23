@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Techno Wears
 
-## Getting Started
+This app now supports a real Supabase-backed product catalog. The homepage reads
+products on the server through Next.js App Router and falls back to local sample
+data until Supabase is configured.
 
-First, run the development server:
+## Local Development
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Copy `.env.example` to `.env.local` and fill in your Supabase values.
+
+3. In the Supabase SQL editor, run [`supabase/schema.sql`](./supabase/schema.sql).
+
+4. Start the app:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Backend Shape
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `app/page.tsx`: server component that loads products
+- `components/home-page-content.tsx`: animated client UI
+- `lib/products.ts`: server-side product loader with fallback behavior
+- `lib/supabase/*`: Supabase client helpers
+- `app/api/products/route.ts`: JSON endpoint for products
+- `app/admin/login/*`: admin auth screens and server actions
+- `app/admin/products/*`: protected product management dashboard
+- `proxy.ts`: Supabase session refresh for admin/auth routes
+- `supabase/schema.sql`: database schema and seed data
 
-## Learn More
+## Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
+NEXT_PUBLIC_WHATSAPP_NUMBER=2349123305803
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- If Supabase env vars are missing, the app uses the local sample catalog.
+- Once the env vars are present and `products` exists in Supabase, the homepage
+  switches to live data automatically.
+- Admin access is controlled by the `public.admin_users` table in Supabase.
+- After signing up, add your user ID to `public.admin_users` to unlock `/admin/products`.

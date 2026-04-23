@@ -1,7 +1,6 @@
-// src/constants/navigation.ts
 export const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Features", href: "/features" },
-  { name: "Pricing", href: "/pricing" },
+  { name: "Shop", href: "#shop" },
   { name: "About", href: "#about-us" },
+  { name: "Contact", href: "#contact" },
 ];
